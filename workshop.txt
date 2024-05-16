@@ -1,0 +1,6 @@
+version=1
+id=3232602628
+title=Advanced Trajectory's Realistic Overhaul Fix-Vehicle
+description=A realistic overhaul of a mod called Advanced Trajectory. plus vehicle 360 fix option and pvp fix
+tags=Military;Multiplayer;Realistic;Vehicles;Weapons
+visibility=public
