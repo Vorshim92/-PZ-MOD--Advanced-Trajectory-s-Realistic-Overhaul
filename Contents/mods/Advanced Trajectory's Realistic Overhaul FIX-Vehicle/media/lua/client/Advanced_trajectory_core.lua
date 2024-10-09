@@ -433,6 +433,7 @@ function Advanced_trajectory.checkiswallordoor(square,bulletAngle,bulletPosition
                         locobject:setSmashed(true)
                         getSoundManager():PlayWorldSoundWav("SmashWindow",square, 0.5, 2, 0.5, true);
                         return true
+                        -- no sync with server, other player doesn't see this change
                     end
 
                     local isAngleTrue = false
