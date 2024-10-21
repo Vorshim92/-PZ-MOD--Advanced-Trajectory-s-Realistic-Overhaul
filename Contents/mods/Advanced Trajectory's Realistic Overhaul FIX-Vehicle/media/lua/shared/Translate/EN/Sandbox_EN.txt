@@ -23,6 +23,8 @@ Sandbox_EN = {
 	Sandbox_Advanced_trajectoryEnablethrow = "Enable Throwed Weapon",
 	Sandbox_Advanced_trajectoryIgnorePVPSafety = "Ignore PVP Safety (PVP)",
 	Sandbox_Advanced_trajectoryIgnorePVPSafety_tooltip = "Need to check this if you want gun PVP with safety features OFF. UNCHECK IF YOU HAVE PVP OFF AND DO NOT WANT GUN PVP!",
+	Sandbox_Advanced_trajectoryIgnoreFactionSafety = "Ignore Faction Safety (PVP)",
+	Sandbox_Advanced_trajectoryIgnoreFactionSafety_tooltip = "Need to check this if you want gun PVP with safety faction features OFF. UNCHECK IF YOU HAVE PVP OFF AND DO NOT WANT GUN PVP!",
 
 	Sandbox_ATblood = "Number Of Bleeding",
 	Sandbox_ATvd = "Bullets Damage To Vehicle",

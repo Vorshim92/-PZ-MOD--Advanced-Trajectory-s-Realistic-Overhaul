@@ -26,6 +26,9 @@ option Advanced_trajectory.callshot
 option Advanced_trajectory.IgnorePVPSafety
 {type = boolean,default = false,page = Advanced_trajectory_damage,translation = Advanced_trajectoryIgnorePVPSafety,}
 
+option Advanced_trajectory.IgnoreFactionSafety
+{type = boolean,default = true,page = Advanced_trajectory_damage,translation = Advanced_trajectoryIgnoreFactionSafety,}
+
 option Advanced_trajectory.enableBulletPenFlesh
 {type = boolean, default = true, page = Advanced_trajectory_damage, translation = Advanced_trajectoryenableBulletPenFlesh,}
 
@@ -40,10 +43,18 @@ option ATY_nonpvp_protect
 
 /* ------Display damage to zombie------ */
 option ATY_damagedisplay
-{type = boolean,page = Advanced_trajectory_damage,translation = ATY_damagedisplay,default = false,}
+{type = boolean,page = Advanced_trajectory_damage,translation = ATY_damagedisplay,default = true,}
 
 option AT_Blood
 {type = integer,page = Advanced_trajectory_damage,translation = ATblood,default = 100, min = 0, max = 100,}
+
+/* ------Display damage to player shooted------ */
+option ATY_damagedisplayplayer
+{type = boolean,page = Advanced_trajectory_damage,translation = ATY_damagedisplayplayer,default = true,}
+
+/* ------Display name player shooted------ */
+option ATY_nameplayershooted
+{type = boolean,page = Advanced_trajectory_damage,translation = ATY_nameplayershooted,default = true,}
 
 
 

@@ -674,7 +674,7 @@ function Advanced_trajectory.boomsfx(sq,sfxName,sfxNum,ticktime)
         varz2,           ---10
         varz3,           ---11
         item,            ---12
-        offset           ---13滞后
+        offset           ---13滞坎
     }
 
     table.insert(Advanced_trajectory.boomtable,tablesfx)
@@ -1638,7 +1638,7 @@ function checkBowAndCrossbow(player, Zombie)
     end
 end
 
-function displayDamageOnZom(damagezb, Zombie)
+function displayDamageOnZom(damagezb, Zombie) -- maybe implement this also for the player damage
     local damagea = TextDrawObject.new()
     damagea:setDefaultColors(1,1,0.1,0.7)
     damagea:setOutlineColors(0,0,0,1)
@@ -2121,7 +2121,9 @@ function Advanced_trajectory.checkontick()
                 -- NOTES: if it's a non friendly player is shot at, determine damage done and which body part is affected
                 -- vt[19] is the player itself (you)
                 -- the player shot can not be the client player (you can't shoot you)
-                if not vt["nonsfx"] and Playershot and vt[19] and Playershot ~= vt[19] and (Faction.getPlayerFaction(Playershot)~=Faction.getPlayerFaction(vt[19]) or not Faction.getPlayerFaction(Playershot))     then
+                -- the player shooted can not be the same faction as the client player
+                -- option to deal with faction members
+                if not vt["nonsfx"] and Playershot and vt[19] and Playershot ~= vt[19] and ((Faction.getPlayerFaction(Playershot) ~= Faction.getPlayerFaction(vt[19]) or not Faction.getPlayerFaction(Playershot)) or (Faction.getPlayerFaction(Playershot) == Faction.getPlayerFaction(vt[19]) and getSandboxOptions():getOptionByName("Advanced_trajectory.IgnoreFactionSafety"):getValue())) then
                     
                     --Playershot:setX(Playershot:getX()+0.15*vt[3][1])
                     --Playershot:setY(Playershot:getY()+0.15*vt[3][2])
@@ -2133,7 +2135,11 @@ function Advanced_trajectory.checkontick()
                     else
                         damagePlayershot(Playershot, damagepr, vt[6], Advanced_trajectory.HeadShotDmgPlayerMultiplier, Advanced_trajectory.BodyShotDmgPlayerMultiplier, Advanced_trajectory.FootShotDmgPlayerMultiplier)
                     end
-
+                    if getSandboxOptions():getOptionByName("ATY_nameplayershooted"):getValue() then
+                        -- getPlayer():Say("Ho colpito " .. (Playershot:getUsername() or "Unknown"))
+                        -- getPlayer():Say("Ho colpito " .. (Playershot:getDescriptor():getForename() .. " " .. Playershot:getDescriptor():getSurname() or "Unknown") .. " in " .. getText(saywhat))
+                        getPlayer():Say("You hit " .. (Playershot:getDescriptor():getForename() .. " " .. Playershot:getDescriptor():getSurname() or "an unknown player") .. "!")
+                    end
                     Advanced_trajectory.itemremove(vt[1])
                     tablenow[kt]=nil
                     break
