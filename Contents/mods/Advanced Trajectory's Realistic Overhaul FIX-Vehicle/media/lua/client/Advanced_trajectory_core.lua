@@ -2138,7 +2138,8 @@ function Advanced_trajectory.checkontick()
                     if getSandboxOptions():getOptionByName("ATY_nameplayershooted"):getValue() then
                         -- getPlayer():Say("Ho colpito " .. (Playershot:getUsername() or "Unknown"))
                         -- getPlayer():Say("Ho colpito " .. (Playershot:getDescriptor():getForename() .. " " .. Playershot:getDescriptor():getSurname() or "Unknown") .. " in " .. getText(saywhat))
-                        getPlayer():Say("You hit " .. (Playershot:getDescriptor():getForename() .. " " .. Playershot:getDescriptor():getSurname() or "an unknown player") .. "!")
+                        -- getPlayer():Say("You hit " .. (Playershot:getDescriptor():getForename() .. " " .. Playershot:getDescriptor():getSurname() or "an unknown player") .. "!")
+                        getPlayer():setHaloNote("You hit " .. ((Playershot:getDescriptor():getForename() .. " " .. Playershot:getDescriptor():getSurname()) or "an unknown player") .. "!", 125, 125, 0, 100)
                     end
                     Advanced_trajectory.itemremove(vt[1])
                     tablenow[kt]=nil
